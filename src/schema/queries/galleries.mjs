@@ -177,7 +177,7 @@ const galleries = {
         .skip(offset)
         .limit(count);
       const totalCount = ids.length;
-      return buildConnection({ totalCount, nodes: galleries });
+      return buildConnection(totalCount, galleries);
     } else {
       const galleries = await Gallery.find({ status: "fetched" })
         .sort({ origin_at: -1 })
