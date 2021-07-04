@@ -9,7 +9,7 @@ const gallery = {
     },
   },
   resolve: async (_, { id }, { isAuthenticated, repository }) => {
-    if (isAuthenticated) throw Error("Authentication failed");
+    if (!isAuthenticated) throw Error("Authentication failed");
     const { Gallery } = repository;
     return await Gallery.findOne({ id: id });
   },
